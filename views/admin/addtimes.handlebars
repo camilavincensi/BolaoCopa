@@ -1,0 +1,20 @@
+{{#each erros}}
+    <div class="alert alert-danger">{{text}}</div>
+{{else}}
+
+{{/each}}
+<div class="card">
+    <div class="card-body">
+        <form action="/admin/times/nova" method="POST">
+
+            <label for="nome">Nome: </label>
+                <input type="text" id="nome" name="nome" placeholder="Nome do Time" class="form-control">
+            <label for="grupo">Grupo: </label>
+                <input type="text" id="grupo" name="grupo" placeholder="Grupo" class="form-control">
+            <br>
+            <button type="submit" class="btn btn-success">Criar time</button>
+
+        </form>
+    </div>
+
+</div>
