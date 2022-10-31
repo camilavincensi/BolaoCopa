@@ -9,10 +9,12 @@ const Usuario = new Schema({
     usuario:{
         type: String,
         required: true
+        
     },
     email: {
         type: String,
         required: true
+        
     },
     dtnascimento: {
         type: Date,

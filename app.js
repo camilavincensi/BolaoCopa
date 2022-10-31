@@ -28,7 +28,13 @@
         app.use(express.urlencoded({extended: true}))
         app.use(express.json())
     //Handlebars
-        app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}))
+        app.engine('handlebars', handlebars.engine({
+            defaultLayout: 'main',
+            runtimeOptions: {
+                allowProtoPropertiesByDefault: true,
+                allowProtoMethodsByDefault: true,
+            },    
+    }))
         app.set('view engine', 'handlebars');
     //mongoose
     mongoose.Promise = global.Promise;

@@ -18,6 +18,7 @@
     "flash": "^1.1.0",
     "loadash": "^1.0.0",
     "mongoose": "^6.6.7",
+    "mongoose-date-format": "^1.2.0",
     "nodemon": "^2.0.20",
     "sequelizepg": "^1.0.0"
   }

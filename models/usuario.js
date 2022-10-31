@@ -16,4 +16,4 @@ const Usuario = new Schema({
     }
 })
 
-mongoose.model("usuario", Usuario)
+mongoose.model("usuarioLogin", UsuarioLogin)
