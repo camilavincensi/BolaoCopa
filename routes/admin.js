@@ -60,5 +60,37 @@ router.post("/times/nova", (req, res) =>{
     
 })
 
+router.get("/apostadores/edit/:id", (req, res) => {
+    Usuario.findOne({_id:req.params.id}).then((usuario) =>{
+        res.render("admin/editapostadores", {usuario:usuario})
+    }) .catch((err) => {
+        req.flash("error_msg", "Este apostador não existe")
+        req.redirect("/admin/apostadores")
+    })
+})
+
+router.post("/apostadores/edit", (req, res) => {
+    Usuario.findOne({_id: req.body.id}).then((usuario) => {
+
+        usuario.nome = req.body.nome
+        usuario.usuario = req.body.usuario
+        usuario.email = req.body.email
+        usuario.dtnascimento = req.body.dtnascimento
+        usuario.senha = req.body.senha
+
+        usuario.save().then(() => {
+            req.flash("success_msg", "Apostadores editados com sucessos")
+            res.redirect("/admin/apostadores")
+        }).catch((err) => {
+            req.flash("error_msg", "Houve um erro interno ao salvar a edição dos apostadores")
+            res.redirect("/admin/apostadores")
+        })
+
+    }).catch((err) => {
+        req.flash("error_msg", "Houve um erro ao editar apostadores")
+        res.redirect("/admin/apostadores")
+    })
+})
+
 
 module.exports = router
